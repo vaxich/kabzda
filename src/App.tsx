@@ -2,6 +2,7 @@ import React from 'react';
 
 import Accordion from './components/Accordeon/Accordion';
 import Rating from './components/Raiting/Raiting';
+import { OnOff } from './components/OnOff/OnOff';
 
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
       <Rating value={5} /> */}
       <Accordion title= {"меню"} collapsed = {true}/>
       <Accordion title= {"Users"} collapsed = {false}/>
+
+      
+      <Rating value={5} />
+
+      <OnOff on = {true}/>
       
     </div>
   );
