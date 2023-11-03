@@ -1,35 +1,57 @@
+import { useState } from "react"
 
-type OnOffPropsType = {
-    on: boolean
+
+
+
+
+export const OnOff = () => {
+
+    const [on, setOn] = useState(false)
+
+    const styled = {
+
+        display: "flex",
+        padding: "5px",
+        backgroundColor: on ? "green" : "white"
+    }
+
+    const onStyle = {
+        width: "90px",
+        height: "60px",
+        border: "5px solid black",
+        display: "inline-block",
+        padding: "5px",
+        backgroundColor: on ? "green" : "white"
+    }
+    const offStyle = {
+        width: "90px",
+        height: "60px",
+        border: "5px solid black",
+        display: "inline-block",
+        marginLeft: "5px",
+        padding: "5px",
+        backgroundColor: on ? "white" : "red"
+    }
+    const indicatorStyle = {
+        width: "60px",
+        height: "60px",
+        borderRadius: "50px",
+        border: "5px solid black",
+        display: "inline-block",
+        marginLeft: "5px",
+        padding: "5px",
+        backgroundColor: on ? "green" : "red"
+    }
+
+
+    return (
+        <div style={styled}>
+            <div style={onStyle} onClick={() => { setOn(true) }}>On</div>
+            <div style={offStyle} onClick={() => { setOn(false) }}>Off</div>
+            <div style={indicatorStyle}></div>
+
+        </div>
+    )
 }
 
-export const OnOff = (props: OnOffPropsType) => {
 
-    let styleGreen = {
-        "backgroundColor": "green"
-    }
-    let styleRed = {
-        "backgroundColor": "red"
-    }
-
-    if (props.on === true) {
-        return (
-            <div>
-                <button style={styleGreen}>on</button>
-                <button >off</button>
-                <input style={styleGreen} type="color" />
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                
-                <button >on</button>
-                <button style={styleRed}>off</button>
-                <input style={styleRed} type="color" />
-            </div>
-        )
-    }
-
-
-}
