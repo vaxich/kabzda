@@ -1,23 +1,24 @@
 import { useState } from "react"
 
-type AccordeonPropsType = {
+type UnControledAccordeonPropsType = {
   title: string
   //collapsed: boolean
 }
 type AccordeonTitlePropsType = {
   title: string
-
+  onClick: () => void
 }
 
 
-function UnControledAccordion(props: AccordeonPropsType) {
+function UnControledAccordion(props: UnControledAccordeonPropsType) {
 
-  const [collapsed , setCollapsed]= useState(false) 
+  const [collapsed, setCollapsed] = useState(false)
 
   return (
     <div>
-      <AccordionTitle title={props.title} /><button onClick={ () => {setCollapsed(!collapsed)}}>TOGGLE</button>
-      { collapsed === false && <AccordionBody />}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
+      <AccordionTitle title={props.title} onClick={() => { setCollapsed(!collapsed) } }/>
+      {/* <button onClick={() => { setCollapsed(!collapsed) }}>TOGGLE</button> */}
+      {collapsed === false && <AccordionBody />}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
       {/* { !props.collapsed  && <AccordionBody />} // !props.collapsed если в пропс false - отрисовать компоненту */}
     </div>
   )
@@ -27,7 +28,7 @@ function UnControledAccordion(props: AccordeonPropsType) {
 function AccordionTitle(props: AccordeonTitlePropsType) {
   return (
     <div>
-      <h3>---{props.title}---</h3>
+      <h3 onClick={ () => {props.onClick()}}>---{props.title}---</h3>
     </div>
   )
 }
