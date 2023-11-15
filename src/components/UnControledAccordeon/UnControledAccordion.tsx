@@ -10,7 +10,7 @@ type AccordeonTitlePropsType = {
 }
 
 
-function UnControledAccordion(props: UnControledAccordeonPropsType) {
+export function UnControledAccordion(props: UnControledAccordeonPropsType) {
 
   const [collapsed, setCollapsed] = useState(false)
 
@@ -47,4 +47,3 @@ function AccordionBody() {
   )
 }
 
-export default UnControledAccordion;

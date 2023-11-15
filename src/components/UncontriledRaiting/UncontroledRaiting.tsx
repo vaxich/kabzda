@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { RaitingValueType } from "../../App"
 
 
 type RaitingPropsType = {
+  defaultValue?: RaitingValueType
   //value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
