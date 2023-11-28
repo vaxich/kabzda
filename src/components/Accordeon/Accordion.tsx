@@ -3,12 +3,22 @@ type AccordeonPropsType = {
   title: string
   collapsed: boolean
   onChange: () => void
+  items: ItemType[]
+  onClick: (value:any) => void
+}
+type AccordeonBodyPropsType = {
+  onClick: (value:any) => void
+  items: ItemType[]
 }
 type AccordeonTitlePropsType = {
   title: string
   onChange: () => void
 }
 
+export type ItemType = {
+  title: string
+  value: number
+}
 
 function Accordion(props: AccordeonPropsType) {
 
@@ -19,12 +29,15 @@ function Accordion(props: AccordeonPropsType) {
       onChange = {props.onChange}
       />
 
-      { props.collapsed === false && <AccordionBody />}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
+      { props.collapsed === false && <AccordionBody items={props.items}  onClick={props.onClick}/>}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
       {/* { !props.collapsed  && <AccordionBody />} // !props.collapsed если в пропс false - отрисовать компоненту */}
     </div>
   )
 
 }
+
+
+
 
 function AccordionTitle(props: AccordeonTitlePropsType) {
   return (
@@ -34,15 +47,14 @@ function AccordionTitle(props: AccordeonTitlePropsType) {
   )
 }
 
-function AccordionBody() {
+function AccordionBody(props: AccordeonBodyPropsType) {
   return (
     <div>
 
 
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        { props.items.map( (item, index) =>   <li onClick={ () => { props.onClick(item.value)}} key={index}>{item.title}</li>    )}
+        
       </ul>
     </div>
   )
