@@ -5,10 +5,10 @@ import {action} from '@storybook/addon-actions'
 
 export default {
     title: "OnOff stories",
-    component: OnOff
+    //component: OnOff
 }
 
-const callBack = action("on or off clicked")
+export const callBack = action("on or off clicked")
 
 export const OnMode = () => <OnOff on ={true} onChange={callBack}/>
 export const OffMode = () => <OnOff on ={false} onChange={callBack}/>

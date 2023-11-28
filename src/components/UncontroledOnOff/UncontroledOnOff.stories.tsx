@@ -15,6 +15,6 @@ const callBack = action("on or off clicked")
 export const OnMode = () => <UncontroledOnOff onChange={callBack}/>
 export const OffMode = () => <UncontroledOnOff onChange={callBack}/>
 
-export const DefaultInputValue = () => <input defaultValue ={"yo"} />
+
 
 

@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import Accordion from './components/Accordeon/Accordion';
 import Rating from './components/Raiting/Raiting';
 import { OnOff } from './components/OnOff/OnOff';
-import UnControledAccordion from './components/UnControledAccordeon/UnControledAccordion';
+
 import UncontroledRating from './components/UncontriledRaiting/UncontroledRaiting';
 import { UncontroledOnOff } from './components/UncontroledOnOff/UncontroledOnOff';
+import { UnControledAccordion } from './components/UnControledAccordeon/UnControledAccordion';
 
 
 export type RaitingValueType = 0 | 1 | 2 | 3 | 4 | 5
