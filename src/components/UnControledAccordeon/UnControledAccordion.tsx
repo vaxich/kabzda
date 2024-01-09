@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react"
-import { TOGGLE_CONSTANT, reduser } from "./reducer"
+import { TOGGLE_CONSTANT, reducer } from "./reducer"
 
 type UnControledAccordeonPropsType = {
   title: string
@@ -25,7 +25,7 @@ type AccordeonTitlePropsType = {
 export function UnControledAccordion(props: UnControledAccordeonPropsType) {
 
   //const [collapsed, setCollapsed] = useState(false)
-  const [state, dispatch] = useReducer(reduser, {collapsed: false})
+  const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
   return (
     <div>
