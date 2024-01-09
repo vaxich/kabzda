@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
+import { TOGGLE_CONSTANT, reduser } from "./reducer"
 
 type UnControledAccordeonPropsType = {
   title: string
@@ -9,16 +10,29 @@ type AccordeonTitlePropsType = {
   onClick: () => void
 }
 
+// type ActionType = {
+//   type: string
+// }
+
+// const reduser = (state: boolean, action: ActionType) => {
+//   if (action.type === "TOGGLE-COLLAPSED") {
+// return !state
+//   }
+//   return state;
+// }
+
 
 export function UnControledAccordion(props: UnControledAccordeonPropsType) {
 
-  const [collapsed, setCollapsed] = useState(false)
+  //const [collapsed, setCollapsed] = useState(false)
+  const [state, dispatch] = useReducer(reduser, {collapsed: false})
 
   return (
     <div>
-      <AccordionTitle title={props.title} onClick={() => { setCollapsed(!collapsed) } }/>
+      {/* <AccordionTitle title={props.title} onClick={() => { setCollapsed(!collapsed) } }/> */}
+      <AccordionTitle title={props.title} onClick={() => { dispatch({type: TOGGLE_CONSTANT})  } }/>
       {/* <button onClick={() => { setCollapsed(!collapsed) }}>TOGGLE</button> */}
-      {collapsed === false && <AccordionBody />}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
+      {!state.collapsed === false && <AccordionBody />}  {/*если props.collapsed == false, то false == false И отрисовыавется компонента AccordionBody */}
       {/* { !props.collapsed  && <AccordionBody />} // !props.collapsed если в пропс false - отрисовать компоненту */}
     </div>
   )
