@@ -15,7 +15,7 @@ type AccordeonTitlePropsType = {
   onChange: () => void
 }
 
-export type ItemType = {
+type ItemType = {
   title: string
   value: number
 }
